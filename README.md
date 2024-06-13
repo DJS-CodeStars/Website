@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, run the development server (Frontend):
 
 ```bash
 npm run dev
@@ -12,6 +12,20 @@ yarn dev
 pnpm dev
 # or
 bun dev
+```
+
+First, run the development server (Frontend):
+
+```bash
+python -m venv venv
+
+.\venv\Scripts\activate
+# or
+source venv/bin/activate
+
+pip install -r erquirements.txt
+
+python app.py
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
