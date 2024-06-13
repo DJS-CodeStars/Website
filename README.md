@@ -14,7 +14,7 @@ pnpm dev
 bun dev
 ```
 
-First, run the development server (Frontend):
+First, run the development server (Backend):
 
 ```bash
 python -m venv venv
