@@ -4,6 +4,7 @@ import requests
 import json
 import random
 
+
 class CodeforcesRecommender:
     def __init__(self, problem_dataset):
         with open(problem_dataset, 'r') as file:
@@ -56,7 +57,7 @@ class CodeforcesRecommender:
 
 app = Flask(__name__)
 CORS(app)
-recommender = CodeforcesRecommender('Problem Recommender/data.json')
+recommender = CodeforcesRecommender('data.json')
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -67,6 +68,7 @@ def api_recommend():
     data = request.json
     codeforces_id = data.get('codeforces_id')
     num_recommendations = data.get('num_recommendations', 5)
+    
     try:
         recommendations = recommender.recommend_problems(codeforces_id, num_recommendations)
         return jsonify(recommendations)
