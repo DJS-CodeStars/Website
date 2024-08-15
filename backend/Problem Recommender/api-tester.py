@@ -9,7 +9,7 @@ def test_api_recommend(base_url, codeforces_id, num_recommendations=5):
     
     try:
         response = requests.post(url, json=payload)
-        response.raise_for_status()  # Raise an error for bad status codes
+        response.raise_for_status()
         data = response.json()
 
         if 'error' in data:

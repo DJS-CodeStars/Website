@@ -5,6 +5,10 @@ import random
 
 app = Flask(__name__)
 
+# Load the dataset only once when the app starts
+with open('data.json', 'r') as file:
+    problem_data = json.load(file)
+
 def get_user_data(codeforces_id):
     user_info = requests.get(f"https://codeforces.com/api/user.info?handles={codeforces_id}").json()
     if user_info['status'] != 'OK':
@@ -24,11 +28,8 @@ def get_user_data(codeforces_id):
     
     return rank, solved_problems
 
-def recommend_problems(rank, solved_problems, problem_dataset,codeforces_id, num_recommendations=5):
-    with open(problem_dataset, 'r') as file:
-        data = json.load(file)
-    
-    if rank not in data:
+def recommend_problems(rank, solved_problems, codeforces_id, num_recommendations=5):
+    if rank not in problem_data:
         raise Exception(f"No problems found for rank {rank}")
     
     # Retrieve user rating
@@ -38,7 +39,7 @@ def recommend_problems(rank, solved_problems, problem_dataset,codeforces_id, num
     user_rating = rank_data['result'][0]['rating']
     
     unsolved_problems = []
-    problems = data[rank]['problem']
+    problems = problem_data[rank]['problem']
     for problem in problems:
         if 'contestId' not in problem or 'rating' not in problem:
             continue
@@ -52,14 +53,13 @@ def recommend_problems(rank, solved_problems, problem_dataset,codeforces_id, num
 
     return random_recommendations
 
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         codeforces_id = request.form['codeforces_id']
         try:
             rank, solved_problems = get_user_data(codeforces_id)
-            recommendations = recommend_problems(rank, solved_problems, 'data.json')
+            recommendations = recommend_problems(rank, solved_problems, codeforces_id)
             return render_template('recommendations.html', recommendations=recommendations, codeforces_id=codeforces_id)
         except Exception as e:
             return render_template('index.html', error=str(e))
@@ -73,7 +73,7 @@ def api_recommend():
     
     try:
         rank, solved_problems = get_user_data(codeforces_id)
-        recommendations = recommend_problems(rank, solved_problems, 'data.json',codeforces_id, num_recommendations)
+        recommendations = recommend_problems(rank, solved_problems, codeforces_id, num_recommendations)
         return jsonify(recommendations)
     except Exception as e:
         return jsonify({"error": str(e)}), 400
