@@ -25,7 +25,7 @@ def test_api_recommend(base_url, codeforces_id, num_recommendations=5):
 def main():
     base_url = "http://127.0.0.1:5000"
     codeforces_id = "brash_ketchup"
-    print(test_api_recommend(base_url, codeforces_id))
+    test_api_recommend(base_url, codeforces_id)
 
 if __name__ == "__main__":
     main()
