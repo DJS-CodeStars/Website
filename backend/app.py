@@ -3,6 +3,8 @@ from flask_cors import CORS
 import requests
 import json
 import random
+from backend.CF_Analyzer import Analyzer
+
 
 class CodeforcesRecommender:
     def __init__(self, problem_dataset):
