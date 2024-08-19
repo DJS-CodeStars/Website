@@ -93,7 +93,7 @@ class Analyzer:
 def main():
     test=Analyzer('hardikrana439')
     test.get_info()
+    test.perf()
     
-main()
       
 
