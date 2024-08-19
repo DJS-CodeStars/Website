@@ -33,10 +33,10 @@ const stats = {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen min-w-screen flex-col items-center justify-between">
       <Navbar></Navbar>
       <Hero></Hero>
-      <Analyzer user={user} stats={stats}></Analyzer>
+
     </main>
   );
 }
