@@ -3,6 +3,7 @@ import Analyzer from "@/components/Analyzer"
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 
+
 const user = {
   rank: 'pupil',
   imageUrl: 'https://www.istockphoto.com/photo/colorful-panther-chameleon-gm1052202540-281251557?utm_campaign=category_photos_top&utm_content=https%3A%2F%2Funsplash.com%2Fimages%2Fanimals&utm_medium=affiliate&utm_source=unsplash&utm_term=Animals+Images+%26+Pictures%3A%3A%3A',

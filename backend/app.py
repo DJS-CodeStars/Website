@@ -3,7 +3,7 @@ from flask_cors import CORS
 import requests
 import json
 import random
-from backend.CF_Analyzer import Analyzer
+from CF_Analyzer import Analyzer
 
 
 class CodeforcesRecommender:
@@ -58,7 +58,7 @@ class CodeforcesRecommender:
 
 app = Flask(__name__)
 CORS(app)
-recommender = CodeforcesRecommender('Problem Recommender/data.json')
+# recommender = CodeforcesRecommender('Problem Recommender/data.json')
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -74,6 +74,20 @@ def api_recommend():
         return jsonify(recommendations)
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
+@app.route('/api/analyzer', methods=['GET'])
+def analyzer():
+    # data = request.json
+    # codeforces_id = data.get('handle')
+    try:
+        analyzer=Analyzer.Analyzer('atharva_n29')
+        analyzer.rating_timeline()
+
+        delta, date=analyzer.perf()
+        return jsonify({'delta':delta,'date':date})
+    except:
+        return jsonify("error")
+
 
 if __name__ == '__main__':
     app.run(debug=True)
