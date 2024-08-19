@@ -39,10 +39,11 @@ const UserStats = ({ stats }) => {
 };
 
 const Analyzer = ({ user, stats }) => {
+  const [handle, setHandle] = useState('');
   const [graphData, setGraphData] = useState(null);
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/analyzer')
+  const fetchData = () => {
+    fetch(`http://127.0.0.1:5000/api/analyzer?handle=${encodeURIComponent(handle)}`)
       .then(response => response.json())
       .then(data => {
         setGraphData({
@@ -51,13 +52,31 @@ const Analyzer = ({ user, stats }) => {
         });
       })
       .catch(error => console.error('Error fetching data:', error));
-  }, []);
+  };
+
+  useEffect(() => {
+    if (handle) {
+      fetchData();
+    }
+  }, [handle]);
 
   return (
     <div className="p-6 flex-col justify-center items-center w-screen">
       <div className="m-5 flex justify-center items-center">
         <p className="font-bold text-3xl mr-4">Codeforces Analyzer</p>
-        <input type="text" placeholder="enter Codeforces ID" className="rounded-md border-black p-3"/>
+        <input 
+          type="text" 
+          value={handle} 
+          onChange={(e) => setHandle(e.target.value)} 
+          placeholder="enter Codeforces ID" 
+          className="rounded-md border-black p-3 text-black"
+        />
+        <button 
+          onClick={fetchData}
+          className="ml-4 p-3 bg-blue-500 text-white rounded-md"
+        >
+          Get Stats
+        </button>
       </div>
       <div className="flex flex-row justify-center items-center">
         <div className="m-5">
