@@ -1,72 +1,5 @@
 import React from 'react'
 import { useState } from "react";
-const sample_problems = [
-    {
-        "contestId": 1627,
-        "index": "C",
-        "name": "Not Assigning",
-        "points": 1250.0,
-        "rating": 1400,
-        "tags": [
-            "constructive algorithms",
-            "dfs and similar",
-            "number theory",
-            "trees"
-        ],
-        "type": "PROGRAMMING"
-    },
-    {
-        "contestId": 1530,
-        "index": "C",
-        "name": "Pursuit",
-        "points": 1000.0,
-        "rating": 1200,
-        "tags": [
-            "binary search",
-            "brute force",
-            "greedy",
-            "sortings"
-        ],
-        "type": "PROGRAMMING"
-    },
-    {
-        "contestId": 492,
-        "index": "C",
-        "name": "Vanya and Exams",
-        "points": 1500.0,
-        "rating": 1400,
-        "tags": [
-            "greedy",
-            "sortings"
-        ],
-        "type": "PROGRAMMING"
-    },
-    {
-        "contestId": 1526,
-        "index": "B",
-        "name": "I Hate 1111",
-        "points": 1000.0,
-        "rating": 1400,
-        "tags": [
-            "dp",
-            "math",
-            "number theory"
-        ],
-        "type": "PROGRAMMING"
-    },
-    {
-        "contestId": 1660,
-        "index": "C",
-        "name": "Get an Even String",
-        "rating": 1300,
-        "tags": [
-            "dp",
-            "greedy",
-            "strings"
-        ],
-        "type": "PROGRAMMING"
-    }
-];
 const ProblemRecommender = () => {
     const [username, setUsername] = useState('');
     const [message, setMessage] = useState('Get Problems According To Your Profiles');
@@ -152,8 +85,8 @@ const ProblemRecommender = () => {
                         <p>Range</p>
                         <p>{range[0]} - {range[1]}</p>
                         <div className='flex flex-col w-[100%] h-10'>
-                            <input style={{'-webkit-appearance':'none'}} min={800} max={3000} value={range[0]} className='bg-black -z-1 rounded-2xl my-1 h-1 relative top-3' type="range" />
-                            <input style={{'-webkit-appearance':'none'}} min={800} max={3000} value={range[1]} className='bg-themeColor rounded-2xl my-1 h-1 relative' type="range" />
+                            <input style={{ '-webkit-appearance': 'none' }} min={800} max={3000} value={range[0]} className='bg-black -z-1 rounded-2xl my-1 h-1 relative top-3' type="range" />
+                            <input style={{ '-webkit-appearance': 'none' }} min={800} max={3000} value={range[1]} className='bg-themeColor rounded-2xl my-1 h-1 relative' type="range" />
                         </div>
                     </div>
                     <div className="tags flex flex-col">
@@ -170,6 +103,6 @@ const ProblemRecommender = () => {
             </div>
         </div>
     )
-}
+};
 
 export default ProblemRecommender

@@ -58,7 +58,7 @@ class CodeforcesRecommender:
 
 app = Flask(__name__)
 CORS(app)
-recommender = CodeforcesRecommender('Problem Recommender/data.json')
+# recommender = CodeforcesRecommender('Problem Recommender/data.json')
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -74,6 +74,36 @@ def api_recommend():
         return jsonify(recommendations)
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
+# @app.route('/api/analyzer', methods=['GET'])
+# def analyzer():
+#     # data = request.json
+#     # codeforces_id = data.get('handle')
+#     try:
+#         analyzer=Analyzer.Analyzer('atharva_n29')
+#         analyzer.rating_timeline()
+
+#         delta, date=analyzer.perf()
+#         return jsonify({'delta':delta,'date':date})
+#     except:
+#         return jsonify("error")
+
+@app.route('/api/analyzer', methods=['GET'])
+def analyzer():
+    handle = request.args.get('handle')  # Retrieve the 'handle' from query parameters
+    if not handle:
+        return jsonify({"error": "Handle parameter is required"}), 400
+
+    try:
+        # Assuming Analyzer is correctly imported and initialized
+        analyzer = Analyzer.Analyzer(handle)  # Initialize with the handle
+        analyzer.rating_timeline()
+
+        delta, date = analyzer.perf()
+        return jsonify({'delta': delta, 'date': date})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
