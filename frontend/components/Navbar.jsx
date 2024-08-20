@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'; // Use this for Next.js 13 App Ro
 
 const navItems = [
   { name: "Problem Recommender", link: "/problems", icon: <></> },
+  { name: "Leaderboard", link: "/leaderboard", icon: <></> },
   { name: "CF Analyzer", link: "/analyser", icon: <></> },
   { name: "Contest Calendar", link: "/calendar", icon: <></> },
   { name: "Hall of Fame", link: "/falloffame", icon: <></> },
