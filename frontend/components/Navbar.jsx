@@ -1,27 +1,36 @@
 "use client";
 import React, { useState } from "react";
 import { FloatingNav } from "@/components/ui/floating-navbar";
-import Link from "next/link";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { usePathname } from 'next/navigation'; // Use this for Next.js 13 App Router
 
 const navItems = [
   { name: "Problem Recommender", link: "/problems", icon: <></> },
-  { name: "CF Analyzer", link: "/", icon: <></> },
-  { name: "Contest Calendar", link: "/", icon: <></> },
-  { name: "Hall of Fame", link: "/", icon: <></> },
+  { name: "CF Analyzer", link: "/analyser", icon: <></> },
+  { name: "Contest Calendar", link: "/calendar", icon: <></> },
+  { name: "Hall of Fame", link: "/falloffame", icon: <></> },
+  { name: "Home", link: "/", icon: <></> },
 ];
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const currentPath = usePathname(); // Get the current route
+
+  console.log(currentPath); // Debugging line
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleNavigation = (link) => {
+    window.location.href = link; // Use window.location for navigation in App Router
+    setIsOpen(false);
+  };
 
   return (
     <div className="relative w-full">
       {/* Floating Navbar for larger screens */}
       <div className="hidden md:block">
-        <FloatingNav navItems={navItems} />
+        <FloatingNav navItems={navItems} currentPath={currentPath} />
       </div>
       {/* Hamburger Menu for smaller screens */}
       <div className="md:hidden flex justify-between items-center p-4">
@@ -32,9 +41,23 @@ export function Navbar() {
           <SheetContent className="w-3/4 md:w-1/2 lg:w-1/3">
             <div className="flex flex-col items-center">
               {navItems.map((item) => (
-                <Link key={item.name} href={item.link}>
-                  <Button className="my-2">{item.name}</Button>
-                </Link>
+                currentPath === item.link ? (
+                  <button
+                    key={item.name}
+                    className="my-2 border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full relative bg-yellow-100 dark:bg-yellow-800"
+                  >
+                    <span>{item.name}</span>
+                    <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent h-px" />
+                  </button>
+                ) : (
+                  <Button
+                    key={item.name}
+                    className="my-2"
+                    onClick={() => handleNavigation(item.link)}
+                  >
+                    {item.name}
+                  </Button>
+                )
               ))}
             </div>
           </SheetContent>

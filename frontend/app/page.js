@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Events } from "@/components/Events";
 import { Footer } from "@/components/Footer";
+import '@/app/globals.css'
 
 const user = {
   rank: 'pupil',
