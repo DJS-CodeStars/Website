@@ -6,8 +6,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { name: "Home", link: "/", icon: <></> },
-  { name: "Problems", link: "/problems", icon: <></> },
+  { name: "Problem Recommender", link: "/problems", icon: <></> },
   { name: "CF Analyzer", link: "/", icon: <></> },
   { name: "Contest Calendar", link: "/", icon: <></> },
   { name: "Hall of Fame", link: "/", icon: <></> },
@@ -40,25 +39,8 @@ export function Navbar() {
             </div>
           </SheetContent>
         </Sheet>
-        <header>
-          {/* Desktop navigation */}
-          <nav className="hidden md:flex gap-4 text-sm font-medium">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.link}
-                className="inline-flex h-9 items-center justify-center rounded-md px-4 py-2 transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                prefetch={false}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-        </header>
-
-        {/* <FloatingNav navItems={navItems} /> */}
       </div>
-    </div >
+    </div>
   );
 }
 

@@ -50,7 +50,7 @@ const ProblemRecommender = () => {
         }
     }
     return (
-        <div className="main-container flex flex-col h-[80vh] w-[90vw] items-center justify-start mt-10">
+        <div className="main-container flex flex-col h-[80vh] w-[90vw] items-center justify-start mt-28">
             <div className="flex justify-center items-center flex-wrap">
                 <input className="bg-themeColor mb-3 lg:mb-0 mr-4 lg:mr-14 text-xl px-2 py-1 lg:px-5 lg:py-2 lg:text-2xl rounded-3xl text-black placeholder-black" name="username" onChange={handleChange} type="text" placeholder="Enter Username" />
                 <button className="bg-themeColor mb-3 lg:mb-0 text-black text-xl px-2 py-1 lg:px-5 lg:py-2 lg:text-2xl rounded-3xl" onClick={handleGetProblems} >Get Problems</button>
