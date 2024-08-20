@@ -29,7 +29,6 @@ class Analyzer:
         info['avg attempts']=float(f'{attempts:.2f}')
         
         info.update(self.user_info['result'][0])
-        print(info)
 
         return info
 
@@ -54,10 +53,11 @@ class Analyzer:
             for items in self.sorted_hard:
                 if (items[3]=='CONTESTANT'):
                     if items[0] in fast_solve:
-                        fast_solve[items[0]]= fast_solve.get(items[0]) if fast_solve.get(items[0])[1]<timedelta(seconds=items[4]) else [items[1],timedelta(seconds=items[4])]
+                        fast_solve[items[0]]= fast_solve.get(items[0]) if fast_solve.get(items[0])[1]<str(timedelta(seconds=items[4])) else [items[1],str(timedelta(seconds=items[4]))]
                     else:
-                        fast_solve[items[0]]=[items[1],timedelta(seconds=items[4])]
-
+                        fast_solve[items[0]]=[items[1],str(timedelta(seconds=items[4]))]
+            print(fast_solve)
+            
         return self.sorted_hard[:30],contest_hard[0:20],fast_solve
            
 
@@ -80,20 +80,11 @@ class Analyzer:
         return delta,self.date_list
     
 
-    def precentile(self):
-        self.ranks=requests.get('https://codeforces.com/api/user.ratedList?activeOnly=true&includeRetired=false').json()
-        ratings=np.array(sorted(item['rating'] for item in self.rank['result']))
-        n = len(ratings)
-        perc = 100*np.arange(n)/n
-        
-        return perc,self.user_info['result']['handle'],self.user_info['result']['rating']
-
     
 
 def main():
     test=Analyzer('hardikrana439')
-    test.get_info()
-    test.perf()
-    
-      
+    test.stalk_hardest()
+
+
 
