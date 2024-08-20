@@ -3,7 +3,7 @@ from flask_cors import CORS
 import requests
 import json
 import random
-from backend.CF_Analyzer import Analyzer
+from CF_Analyzer import Analyzer
 
 
 class CodeforcesRecommender:

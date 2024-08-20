@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 const navItems = [
   { name: "Home", link: "/", icon: <></> },
   { name: "About", link: "/", icon: <></> },
+  { name: "Problems", link: "/problems", icon: <></> },
   { name: "Contact", link: "/", icon: <></> },
 ];
 
@@ -60,7 +61,7 @@ export function Navbar() {
         </nav>
       </header>
 
-      <FloatingNav navItems={navItems} />
+      {/* <FloatingNav navItems={navItems} /> */}
     </div>
   );
 }
