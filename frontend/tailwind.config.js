@@ -18,7 +18,11 @@ module.exports = {
     },
     extend: {
       colors: {
+<<<<<<< HEAD
         'codestars': '#FAA107',
+=======
+        themeColor: '#FAA107',
+>>>>>>> bca45140ef133dc45b8769d998efa1fa212950be
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

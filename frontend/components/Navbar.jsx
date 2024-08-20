@@ -6,7 +6,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { name: "Problem Recommender", link: "/", icon: <></> },
+  { name: "Problem Recommender", link: "/problems", icon: <></> },
   { name: "CF Analyzer", link: "/", icon: <></> },
   { name: "Contest Calendar", link: "/", icon: <></> },
   { name: "Hall of Fame", link: "/", icon: <></> },
