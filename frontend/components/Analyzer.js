@@ -43,6 +43,8 @@ const UserStats = ({ stats }) => {
 const Analyzer = ({ user, stats }) => {
   const [handle, setHandle] = useState("");
   const [graphData, setGraphData] = useState(null);
+  const [RatinggraphData, setRatingGraphData] = useState(null);
+  const [PerfgraphData, setPerfGraphData] = useState(null);
 
   const fetchData = () => {
     fetch(
@@ -50,13 +52,26 @@ const Analyzer = ({ user, stats }) => {
     )
       .then((response) => response.json())
       .then((data) => {
-        setGraphData({
-          x: data.date,
-          y: data.delta,
-        });
+        if(data.date && data.delta){
+          setGraphData({
+            x: data.date,
+            y: data.delta,
+          });
+        }
+        else
+        {
+          setGraphData(null)
+        }
+
       })
       .catch((error) => console.error("Error fetching data:", error));
   };
+
+  useEffect(() => {
+    if (handle) {
+      fetchData();
+    }
+  }, [handle]);
 
   return (
     <div className="p-6 flex-col justify-center items-center w-screen">
