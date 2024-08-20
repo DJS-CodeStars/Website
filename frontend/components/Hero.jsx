@@ -8,6 +8,7 @@ export function Hero() {
   const words2 = ["PROGRAMMING", "& ALGORITHMS"];
 
   return (
+    <div className="relative flex flex-col justify-center items-center w-full h-screen ">
     <div
       className="relative flex flex-col justify-center items-center w-full h-screen bg-no-repeat bg-cover bg-center"
       style={{
@@ -44,7 +45,7 @@ export function Hero() {
         <div className="w-full flex flex-col sm:flex-row sm:justify-between mt-24 items-center gap-8">
           <Button className="px-8 rounded-3xl h-12 text-black font-normal text-lg hover:bg-transparent hover:border-yellow-500 hover:border-2 hover:text-white transition duration-300 ease-in-out">
             Join our community
-            <Image src={'/arrow.svg'} height={10} width={10} className="ml-2" alt="Arrow Icon"/>
+            <Image src={'/arrow.svg'} height={10} width={10} className="ml-2 hover:fill-white" alt="Arrow Icon"/>
           </Button>
 
           {/* Stats Section */}
@@ -64,6 +65,7 @@ export function Hero() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
