@@ -4,7 +4,7 @@ import Plot from "react-plotly.js";
 
 const UserInfoCard = ({ user }) => {
   return (
-    <div className="bg-green-200 p-4 rounded-lg shadow-md mb-6 flex-col justify-center items-center">
+    <div className="bg-green-200 p-4 rounded-lg shadow-md mb-6 flex-col justify-center items-center mt-5  ">
       {/* <img
         src={userImage}
         alt={`${user.name}'s profile`}
@@ -57,12 +57,6 @@ const Analyzer = ({ user, stats }) => {
       })
       .catch((error) => console.error("Error fetching data:", error));
   };
-
-  useEffect(() => {
-    if (handle) {
-      fetchData();
-    }
-  }, [handle]);
 
   return (
     <div className="p-6 flex-col justify-center items-center w-screen">
