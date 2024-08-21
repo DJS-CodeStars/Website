@@ -10,7 +10,7 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-# recommender = Recommender('Problem_Recommender/data.json')
+recommender = Recommender('Problem_Recommender/data.json')
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -40,7 +40,8 @@ def analyzer():
         data['stalk_hard'],data['stalk_contest'],data['stalk_fast']=analyzer.stalk_hardest()
         data['ratings'],data['date']=analyzer.rating_timeline()
         data['delta'], data['date'] = analyzer.perf()
-        
+        data.update(analyzer.basic_graphs())
+
         return jsonify(data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
