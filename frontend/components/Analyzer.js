@@ -50,65 +50,75 @@ const Analyzer = ({ user, stats }) => {
           Get Stats
         </button>
       </div>
-      {/* {data && ( */}
+      {data && (
         <div className="flex flex-row justify-center items-center">
-          <div className="flex basis-1/4 m-5 justify-center items-center flex-col border-2 border-yellow-500 p-5 rounded-md">
-              <p className="font-mono text-lg">Title:Content</p>
-              <p className="font-mono text-lg">Title:Content</p>
-              <p className="font-mono text-lg">Title:Content</p>
-              <p className="font-mono text-lg">Title:Content</p>
-              <p className="font-mono text-lg">Title:Content</p>
-              <p className="font-mono text-lg">Title:Content</p>
-              <p className="font-mono text-lg">Title:Content</p>
+          <div className="flex basis-1/4 m-5 justify-center items-center flex-col border-2 border-yellow-500 p-1 rounded-md">
+              <p className="font-mono text-lg">Handle:{data.handle}</p>
+              <hr className="border-1 border-yellow-500 w-5/6"></hr>
+              <p className="font-mono text-lg">User:{data.firstName} {data.lastName}</p>
+              <hr className="border-1 border-yellow-500 w-5/6"></hr>
+              <p className="font-mono text-lg">Rank:{data.rank}</p>
+              <hr className="border-1 border-yellow-500 w-5/6"></hr>
+              <p className="font-mono text-lg">Email:{data.email}</p>
+              <hr className="border-1 border-yellow-500 w-5/6"></hr>
+              <p className="font-mono text-lg">Organization:{data.organization}</p>
+              <hr className="border-1 border-yellow-500 w-5/6"></hr>
+              <p className="font-mono text-lg">City:{data.city}</p>
+              <hr className="border-1 border-yellow-500 w-5/6"></hr>
+              <p className="font-mono text-lg">Country:{data.country}</p>
+              <hr className="border-1 border-yellow-500 w-5/6"></hr>
+              <p className="font-mono text-lg">Contribution:{data.contribution}</p>
+              <hr className="border-1 border-yellow-500 w-5/6"></hr>
+              <p className="font-mono text-lg">Friends:{data.friendOfCount}</p>
           </div>
           <div className="flex basis-1/4 m-5 flex-col justify-center items-center">
-              <div className="flex justify-center items-center">
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
-                  <div><p className="font-mono text-lg">title</p></div>
-                  <div><p className="font-mono text-2xl">content</p></div>
+              <div className="flex justify-center items-center basis-1/2 flex-grow-1">
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5">
+                  <div><p className="font-mono text-lg">Rating</p></div>
+                  <div><p className="font-mono text-2xl">{data.rating}</p></div>
                 </div>
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
-                  <div><p className="font-mono text-lg">title</p></div>
-                  <div><p className="font-mono text-2xl">content</p></div>
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5">
+                  <div><p className="font-mono text-lg">Max Rating</p></div>
+                  <div><p className="font-mono text-2xl">{data.maxRating}</p></div>
                 </div>
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
-                  <div><p className="font-mono text-lg">title</p></div>
-                  <div><p className="font-mono text-2xl">content</p></div>
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5">
+                  <div><p className="font-mono text-lg">Max Rank</p></div>
+                  <div><p className="font-mono text-2xl">{data.maxRank}</p></div>
                 </div>
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
-                  <div><p className="font-mono text-lg">title</p></div>
-                  <div><p className="font-mono text-2xl">content</p></div>
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5">
+                  <div><p className="font-mono text-lg">Problems Solved</p></div>
+                  <div><p className="font-mono text-2xl">{data.tried}</p></div>
                 </div>
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
-                  <div><p className="font-mono text-lg">title</p></div>
-                  <div><p className="font-mono text-2xl">content</p></div>
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5">
+                  <div><p className="font-mono text-lg">Problems Tried</p></div>
+                  <div><p className="font-mono text-2xl">{data.solved}</p></div>
                 </div>
               </div>
-              <div className="flex justify-center items-center">
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
+              <div className="flex justify-center items-center basis-1/2 flex-grow-1">
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5 flex-grow-1">
+                  <div><p className="font-mono text-lg">Max Ac</p></div>
+                  <div><p className="font-mono text-2xl">{data.max_ac} </p></div>
+                </div>
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5 flex-grow-1">
                   <div><p className="font-mono text-lg">title</p></div>
                   <div><p className="font-mono text-2xl">content</p></div>
                 </div>
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5 flex-grow-1">
                   <div><p className="font-mono text-lg">title</p></div>
                   <div><p className="font-mono text-2xl">content</p></div>
                 </div>
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5 flex-grow-1">
                   <div><p className="font-mono text-lg">title</p></div>
                   <div><p className="font-mono text-2xl">content</p></div>
                 </div>
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
-                  <div><p className="font-mono text-lg">title</p></div>
-                  <div><p className="font-mono text-2xl">content</p></div>
-                </div>
-                <div className="flex justify-center items-center m-3 p-3 border-2 border-yellow-500 rounded-md flex-col">
+                <div className="flex  m-3 p-3 border-2 border-yellow-500 rounded-md flex-col basis-1/5 flex-grow-1">
                   <div><p className="font-mono text-lg">title</p></div>
                   <div><p className="font-mono text-2xl">content</p></div>
                 </div>
               </div>
           </div>
         </div> 
-      {/* )} */}
+      )}
       <div className="flex flex-row">
         {/* Performance plot */}
 
