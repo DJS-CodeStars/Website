@@ -15,7 +15,6 @@ export default function Home() {
       <Events />
       <About />
       <Footer />
-      <Analyzer/>
     </div>
   );
 }
