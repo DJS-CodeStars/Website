@@ -10,7 +10,7 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-recommender = Recommender('Problem_Recommender/data.json')
+#recommender = Recommender('Problem_Recommender/data.json')
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
