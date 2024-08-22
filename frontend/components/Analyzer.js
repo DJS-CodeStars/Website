@@ -31,7 +31,7 @@ const Analyzer = ({ user, stats }) => {
   };
 
   return (
-    <div className="p-6 flex-col justify-center items-center w-screen mt-10">
+    <div className="p-6 flex-col justify-center items-center w-screen mt-16">
       <div className="m-5 flex justify-center items-center">
         <p className="font-bold text-3xl mr-4">Codeforces Analyzer</p>
         <input
